@@ -10,4 +10,17 @@ public class UsersResource {
     public User me() {
         return new User(identity);
     }
+
+    public static class User {
+
+        private final String userName;
+
+        User(SecurityIdentity identity) {
+            this.userName = identity.getPrincipal().getName();
+        }
+
+        public String getUserName() {
+            return userName;
+        }
+    }
 }
